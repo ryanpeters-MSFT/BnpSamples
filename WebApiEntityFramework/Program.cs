@@ -2,11 +2,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container
+builder.Services.AddDbContext<DogsContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("Default");
 
-builder.Services.AddDbContext<DogsContext>(options => options.UseSqlite("Data Source=dogs.db"));
+    options.UseSqlite(connectionString);
+});
 
+builder.Services.AddScoped<IDogRepository, EfDogRepository>();
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

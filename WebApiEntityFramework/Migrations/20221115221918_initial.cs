@@ -1,7 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
+
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
 namespace WebApiEntityFramework.Migrations
 {
@@ -15,7 +16,8 @@ namespace WebApiEntityFramework.Migrations
                 name: "Dogs",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Breed = table.Column<string>(type: "TEXT", nullable: false),
                     Age = table.Column<int>(type: "INTEGER", nullable: false),
@@ -24,6 +26,17 @@ namespace WebApiEntityFramework.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Dogs", x => x.Id);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Dogs",
+                columns: new[] { "Id", "Age", "Breed", "HasAllShots", "Name" },
+                values: new object[,]
+                {
+                    { 1, 7, "Beagle", true, "Daisy" },
+                    { 2, 4, "Boxer", true, "Sadie" },
+                    { 3, 2, "Basset Hound", false, "Belle" },
+                    { 4, 3, "Mastiff", false, "Ellie" }
                 });
         }
 
