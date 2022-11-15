@@ -27,7 +27,7 @@ public class DogsController : ControllerBase
 
         if (dog == null)
         {
-            return NotFound("We could not find your dog :-)");
+            return NotFound("We could not find your dog :-(");
         }
 
         return Ok(dog);
