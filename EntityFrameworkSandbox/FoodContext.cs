@@ -1,25 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EntityFrameworkSandbox
 {
     public class FoodContext : DbContext
     {
+        public DbSet<Food> Foods { get; set; }
+
         public FoodContext() { }
         public FoodContext(DbContextOptions<FoodContext> context) : base(context) { }
 
-        public DbSet<Food> Foods { get;set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Food>().HasData(new Food 
+            {
+                Id = Guid.Parse("b559d96b-cd55-4bde-8814-225e815828bc"),
+                Name = "Spaghetti",
+                Origin = "Italy"
+            });
+        }
     }
-
-    public class Food
-    {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Origin { get; set; }
-    }
-
 }

@@ -18,4 +18,13 @@ builder.ConfigureServices((context, services) =>
     services.AddDbContext<FoodContext>(options => options.UseSqlServer(connectionString));
 });
 
-builder.Build();
+var app = builder.Build();
+
+var context = app.Services.GetService<FoodContext>();
+
+var foods = context.Foods.ToList();
+
+foreach (var food in foods)
+{
+    Console.WriteLine($"{food.Name} is from {food.Origin}");
+}
