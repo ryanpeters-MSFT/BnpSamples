@@ -14,9 +14,9 @@ builder.ConfigureAppConfiguration(options =>
 
 builder.ConfigureServices((context, services) =>
 {
-    var connectionString = context.Configuration.GetConnectionString("Default");
+    //var connectionString = context.Configuration.GetConnectionString("Default");
 
-    services.AddDbContext<FoodContext>(options => options.UseSqlServer(connectionString));
+    services.AddDbContext<FoodContext>(options => options.UseSqlite("Data Source=food.db"));
 });
 
 var app = builder.Build();

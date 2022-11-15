@@ -6,11 +6,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EntityFrameworkSandbox.Migrations
 {
     /// <inheritdoc />
-    public partial class seeding : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Foods",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Origin = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Foods", x => x.Id);
+                });
+
             migrationBuilder.InsertData(
                 table: "Foods",
                 columns: new[] { "Id", "Name", "Origin" },
@@ -20,10 +33,8 @@ namespace EntityFrameworkSandbox.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "Foods",
-                keyColumn: "Id",
-                keyValue: new Guid("b559d96b-cd55-4bde-8814-225e815828bc"));
+            migrationBuilder.DropTable(
+                name: "Foods");
         }
     }
 }
