@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "Name": "Canis Minor",
+    "Meaning": "The Small Dog",
+    "StarCount": 2,
+    "BrightestStar": "Procyon"
+  },
+  {
+    "Id": 2,
+    "Name": "Canes Venatici",
+    "Meaning": "The Hunting Dogs",
+    "StarCount": 3,
+    "BrightestStar": "Cor Caroli"
+  },
+  {
+    "Id": 3,
+    "Name": "Pyxis",
+    "Meaning": "The Compass",
+    "StarCount": 3,
+    "BrightestStar": "Alpha Pyxidis"
+  },
+  {
+    "Id": 4,
+    "Name": "Sculptor",
+    "Meaning": "The Sculptor",
+    "StarCount": 5,
+    "BrightestStar": "Alpha Sculptoris"
+  },
+  {
+    "Id": 5,
+    "Name": "Hydrus",
+    "Meaning": "The Water Snake",
+    "StarCount": 7,
+    "BrightestStar": "Beta Hydri"
+  }
+]
