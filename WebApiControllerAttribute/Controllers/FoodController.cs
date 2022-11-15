@@ -9,11 +9,13 @@ public class FoodController : ControllerBase
 {
     [HttpPost]
     [Consumes("application/json")]
-    public IActionResult CreateJson(FoodViewModel model)
+    [Produces("application/xml")]
+    public object CreateJson(FoodViewModel model)
     {
         // create a new client
 
-        return Ok($"Added a new food {model.Name} using JSON");
+        //return Ok($"Added a new food {model.Name} using JSON");
+        return model;
     }
 
     [HttpPost]
