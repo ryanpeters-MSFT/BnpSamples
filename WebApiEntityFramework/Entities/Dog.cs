@@ -1,3 +1,5 @@
+namespace WebApiEntityFramework.Entities;
+
 public class Dog
 {
     public int Id { get; set; }

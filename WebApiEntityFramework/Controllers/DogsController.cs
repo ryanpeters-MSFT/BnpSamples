@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using WebApiEntityFramework.Entities;
+using WebApiEntityFramework.Models;
 
 namespace WebApiEntityFramework.Controllers;
 
@@ -29,5 +31,26 @@ public class DogsController : ControllerBase
         }
 
         return Ok(dog);
+    }
+
+    [HttpPost]
+    public async Task<int> Create(DogViewModel dog)
+    {
+        var entity = new Dog
+        {
+            Name = dog.Name,
+            Age = dog.Age.Value,
+            Breed = dog.Breed,
+            HasAllShots = dog.HasAllShots
+        };
+
+        return await dogRepository.CreateDogAsync(entity);
+    }
+
+    [HttpDelete]
+    [Route("{id}")]
+    public Task Delete(int id)
+    {
+        return dogRepository.DeleteDogAsync(id);
     }
 }
