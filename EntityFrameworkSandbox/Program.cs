@@ -8,7 +8,8 @@ var builder = Host.CreateDefaultBuilder(args);
 
 builder.ConfigureAppConfiguration(options =>
 {
-    options.AddUserSecrets<Program>();
+    //options.AddUserSecrets<Program>();
+    options.AddJsonFile("settings.json");
 });
 
 builder.ConfigureServices((context, services) =>
