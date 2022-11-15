@@ -5,10 +5,10 @@ namespace WebApiEntityFramework.Models;
 public class DogViewModel
 {
     [Required]
-    public string Name {get;set;}
+    public string? Name {get;set;}
 
     [Required]
-    public string Breed { get; set; }
+    public string? Breed { get; set; }
 
     [Required]
     public int? Age { get; set; }
