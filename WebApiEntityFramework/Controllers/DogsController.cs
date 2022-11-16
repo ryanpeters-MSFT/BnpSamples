@@ -14,7 +14,7 @@ public class DogsController : ControllerBase
 
     public Task<List<Dog>> GetAsync() => dogRepository.GetAllDogsAsync();
 
-    [Route("{id}")]
+    [Route("{id:int}")]
     public async Task<IActionResult> GetAsync(int id)
     {
         var dog = await dogRepository.GetDogAsync(id);
@@ -43,6 +43,6 @@ public class DogsController : ControllerBase
     }
 
     [HttpDelete]
-    [Route("{id}")]
+    [Route("{id:int}")]
     public Task Delete(int id) => dogRepository.DeleteDogAsync(id);
 }
