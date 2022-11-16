@@ -16,6 +16,7 @@ public class DogsContext : DbContext
             {
                 Id = 1,
                 Name = "Daisy",
+                Description = "Daisy is a cute dog with short black hair and loves people.",
                 Breed = "Beagle",
                 Age = 7,
                 HasAllShots = true
@@ -23,6 +24,7 @@ public class DogsContext : DbContext
             {
                 Id = 2,
                 Name = "Sadie",
+                Description = "Large dog with big feet. Loves to chew shoes.",
                 Breed = "Boxer",
                 Age = 4,
                 HasAllShots = true
@@ -30,6 +32,7 @@ public class DogsContext : DbContext
             {
                 Id = 3,
                 Name = "Belle",
+                Description = "Great at playing fetch!",
                 Breed = "Basset Hound",
                 Age = 2,
                 HasAllShots = false
@@ -37,6 +40,7 @@ public class DogsContext : DbContext
             {
                 Id = 4,
                 Name = "Ellie",
+                Description = "Big girl who loves the couch. Needs lots of space to play. Loves eating socks and tennis balls.",
                 Breed = "Mastiff",
                 Age = 3,
                 HasAllShots = false
