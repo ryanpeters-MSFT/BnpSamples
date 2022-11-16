@@ -10,15 +10,9 @@ public class DogsController : ControllerBase
 {
     private readonly IDogRepository dogRepository;
 
-    public DogsController(IDogRepository dogRepository)
-    {
-        this.dogRepository = dogRepository;
-    }
+    public DogsController(IDogRepository dogRepository) => this.dogRepository = dogRepository;
 
-    public Task<List<Dog>> GetAsync()
-    {
-        return dogRepository.GetAllDogsAsync();
-    }
+    public Task<List<Dog>> GetAsync() => dogRepository.GetAllDogsAsync();
 
     [Route("{id}")]
     public async Task<IActionResult> GetAsync(int id)
@@ -50,8 +44,5 @@ public class DogsController : ControllerBase
 
     [HttpDelete]
     [Route("{id}")]
-    public Task Delete(int id)
-    {
-        return dogRepository.DeleteDogAsync(id);
-    }
+    public Task Delete(int id) => dogRepository.DeleteDogAsync(id);
 }
