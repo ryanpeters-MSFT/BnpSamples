@@ -36,6 +36,7 @@ public class DogsController : ControllerBase
     [HttpPost]
     public async Task<int> Create(DogViewModel dog)
     {
+        // in production, consider a mapping utility, such as AutoMapper
         var entity = new Dog
         {
             Name = dog.Name,
