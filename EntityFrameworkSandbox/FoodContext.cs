@@ -6,7 +6,6 @@ namespace EntityFrameworkSandbox
     {
         public DbSet<Food> Foods { get; set; }
 
-        public FoodContext() { }
         public FoodContext(DbContextOptions<FoodContext> context) : base(context) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
