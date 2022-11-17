@@ -8,6 +8,9 @@ public class DogViewModel
     public string? Name {get;set;}
 
     [Required]
+    public string Description { get; set; }
+
+    [Required]
     public string? Breed { get; set; }
 
     [Required]

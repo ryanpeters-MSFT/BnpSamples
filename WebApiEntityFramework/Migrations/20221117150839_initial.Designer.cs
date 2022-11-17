@@ -9,34 +9,40 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WebApiEntityFramework.Migrations
 {
     [DbContext(typeof(DogsContext))]
-    [Migration("20221115221918_initial")]
+    [Migration("20221117150839_initial")]
     partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "7.0.0")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Dog", b =>
+            modelBuilder.Entity("WebApiEntityFramework.Entities.Dog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("Age")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Breed")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("HasAllShots")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -48,6 +54,7 @@ namespace WebApiEntityFramework.Migrations
                             Id = 1,
                             Age = 7,
                             Breed = "Beagle",
+                            Description = "Daisy is a cute dog with short black hair and loves people.",
                             HasAllShots = true,
                             Name = "Daisy"
                         },
@@ -56,6 +63,7 @@ namespace WebApiEntityFramework.Migrations
                             Id = 2,
                             Age = 4,
                             Breed = "Boxer",
+                            Description = "Large dog with big feet. Loves to chew shoes.",
                             HasAllShots = true,
                             Name = "Sadie"
                         },
@@ -64,6 +72,7 @@ namespace WebApiEntityFramework.Migrations
                             Id = 3,
                             Age = 2,
                             Breed = "Basset Hound",
+                            Description = "Great at playing fetch!",
                             HasAllShots = false,
                             Name = "Belle"
                         },
@@ -72,6 +81,7 @@ namespace WebApiEntityFramework.Migrations
                             Id = 4,
                             Age = 3,
                             Breed = "Mastiff",
+                            Description = "Big girl who loves the couch. Needs lots of space to play. Loves eating socks and tennis balls.",
                             HasAllShots = false,
                             Name = "Ellie"
                         });

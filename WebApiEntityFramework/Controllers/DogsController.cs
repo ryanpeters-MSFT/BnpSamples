@@ -35,6 +35,7 @@ public class DogsController : ControllerBase
         {
             Name = dog.Name,
             Age = dog.Age.Value,
+            Description = dog.Description,
             Breed = dog.Breed,
             HasAllShots = dog.HasAllShots
         };

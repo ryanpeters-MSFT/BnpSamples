@@ -19,4 +19,5 @@ RUN dotnet publish "WebApiEntityFramework.csproj" -c Release -o /app/publish /p:
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
 ENTRYPOINT ["dotnet", "WebApiEntityFramework.dll"]
