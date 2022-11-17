@@ -1,0 +1,15 @@
+﻿@model ICollection<Dog>
+@{
+    ViewData["Title"] = "Home Page";
+
+    var dogs = Model.OrderBy(d => d.Name).ToList();
+}
+
+<h1>Welcome to our Dog Adoption Service!</h1>
+
+@foreach(var dog in dogs)
+{
+    <h3>@dog.Name</h3>
+    <p><strong>Breed: @dog.Breed, Age: @dog.Age</strong></p>
+    <p>@dog.Description</p>
+}
